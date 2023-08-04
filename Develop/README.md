@@ -1,5 +1,5 @@
 {
-	"title": "tuna",
+	"title": "Readme",
 	"stack": [
 		"HTML"
 	],

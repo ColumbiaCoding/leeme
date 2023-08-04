@@ -30,17 +30,17 @@ inquirer
     generateMarkdown(data);
     // const filename = `${data.name.toLowerCase().split(' ').join('')}.json`;
 
-    fs.writeFile('test.txt', JSON.stringify(data, null, '\t'), (err) =>
+    fs.writeFile('README.md', JSON.stringify(data, null, '\t'), (err) =>
       err ? console.log(err) : console.log('Success!')
     );
   });
 
 // TODO: Create a function to write README file
 
-function writeToFile(fileName, data) {
-  fs.writeFile(fileName, data, (err) =>
-    err ? console.log(err) : console.log('Success!')
-  );
+// function writeToFile(fileName, data) {
+//   fs.writeFile(fileName, data, (err) =>
+//     err ? console.log(err) : console.log('Success!')
+//   );
 
 // TODO: Create a function to initialize app
 function init() {}
