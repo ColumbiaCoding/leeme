@@ -13,26 +13,74 @@ inquirer
       message: 'What is the name of the project?',
     },
     {
-      type: 'checkbox',
-      message: 'What languages do you know?',
-      name: 'stack',
-      choices: ['HTML', 'CSS', 'JavaScript', 'MySQL'],
+      type: 'input',
+      message: 'describe your project?',
+      name: 'description',
     },
     {
-      type: 'list',
-      message: 'What is your preferred method of communication?',
-      name: 'contact',
-      choices: ['email', 'phone', 'telekinesis'],
+      type: 'input',
+      message: 'What is your preferred method of installation?',
+      name: 'installation',
+    },
+    {
+      type: 'input',
+      message: 'What is your preferred method of usage?',
+      name: 'usage',
+    },
+    {
+      type: 'input',
+      message: 'What license are you using?',
+      name: 'license',
+    },
+    {
+      type: 'input',
+      message: 'Who are contributed to the project?',
+      name: 'contributing',
+    },
+    {
+      type: 'input',
+      message: 'What tests are you using for this project?',
+      name: 'tests',
+    },
+    {
+      type: 'input',
+      message: 'What questions do you have for this project?',
+      name: 'questions',
     },
   ])
   .then((data) => {
     console.log(data);
-    generateMarkdown(data);
-    // const filename = `${data.name.toLowerCase().split(' ').join('')}.json`;
+    // generateMarkdown(data);
+    // // const filename = `${data.name.toLowerCase().split(' ').join('')}.json`;
 
-    fs.writeFile('README.md', JSON.stringify(data, null, '\t'), (err) =>
-      err ? console.log(err) : console.log('Success!')
-    );
+    // fs.writeFile('README.md', JSON.stringify(data, null, '\t'), (err) =>
+    //   err ? console.log(err) : console.log('Success!')
+    // );
+    fs.writeFileSync("./dist/README.md", `
+# ${data.title}
+
+## Table of Contents
+
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Tests](#tests)
+- [Questions](#questions)
+
+## Description
+${data.description}
+## Installation
+${data.installation}
+## Usage
+${data.usage}
+## License
+${data.license}
+## Test
+${data.test}
+## Questions
+${data.questions}
+    `)
   });
 
 // TODO: Create a function to write README file
